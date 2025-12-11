@@ -600,6 +600,49 @@ st.markdown("""
     [data-testid="stMetric"] {
         animation: float 3s ease-in-out infinite;
     }
+    
+    /* Footer branding */
+    .footer-branding {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background: rgba(26, 36, 86, 0.95);
+        backdrop-filter: blur(10px);
+        padding: 1rem 2rem;
+        text-align: center;
+        border-top: 2px solid rgba(255, 255, 255, 0.2);
+        z-index: 999;
+        font-family: 'Poppins', sans-serif;
+    }
+    
+    .footer-branding p {
+        margin: 0;
+        color: #ffffff;
+        font-size: 0.95rem;
+    }
+    
+    .footer-branding a {
+        color: #f093fb;
+        text-decoration: none;
+        font-weight: 600;
+        transition: all 0.3s ease;
+    }
+    
+    .footer-branding a:hover {
+        color: #667eea;
+        text-decoration: underline;
+    }
+    
+    .brand-name {
+        color: #f093fb;
+        font-weight: 700;
+    }
+    
+    /* Add padding to main content to prevent footer overlap */
+    .main .block-container {
+        padding-bottom: 80px;
+    }
 </style>
 """, unsafe_allow_html=True)
 
@@ -1946,6 +1989,17 @@ def display_microphone_tab():
         - 🎹 MIDI file of your performance
         - 📄 Detailed analysis data
         """)
+    
+    # Footer branding
+    st.markdown("""
+    <div class="footer-branding">
+        <p>
+            <span class="brand-name">Raga Musikraum</span> | 
+            Developed by: <a href="https://www.dinexora.de" target="_blank">Dinexora</a> | 
+            © 2025 | 🎵 Empowering Music Analysis
+        </p>
+    </div>
+    """, unsafe_allow_html=True)
 
 
 if __name__ == "__main__":
