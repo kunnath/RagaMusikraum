@@ -607,19 +607,22 @@ st.markdown("""
         bottom: 0;
         left: 0;
         right: 0;
-        background: rgba(26, 36, 86, 0.95);
-        backdrop-filter: blur(10px);
+        width: 100%;
+        background: rgba(26, 36, 86, 0.98);
+        backdrop-filter: blur(15px);
         padding: 1rem 2rem;
         text-align: center;
-        border-top: 2px solid rgba(255, 255, 255, 0.2);
-        z-index: 999;
+        border-top: 2px solid rgba(255, 255, 255, 0.3);
+        z-index: 9999 !important;
         font-family: 'Poppins', sans-serif;
+        box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.3);
     }
     
     .footer-branding p {
         margin: 0;
         color: #ffffff;
         font-size: 0.95rem;
+        font-weight: 500;
     }
     
     .footer-branding a {
@@ -637,11 +640,22 @@ st.markdown("""
     .brand-name {
         color: #f093fb;
         font-weight: 700;
+        font-size: 1.05rem;
     }
     
     /* Add padding to main content to prevent footer overlap */
     .main .block-container {
-        padding-bottom: 80px;
+        padding-bottom: 90px !important;
+    }
+    
+    /* Ensure tabs don't overlap footer */
+    [data-testid="stTabs"] {
+        margin-bottom: 90px;
+    }
+    
+    /* Ensure all tab content has proper spacing */
+    [data-baseweb="tab-panel"] {
+        padding-bottom: 30px;
     }
 </style>
 """, unsafe_allow_html=True)
@@ -1017,6 +1031,17 @@ def main():
     
     with tab4:
         display_microphone_tab()
+    
+    # Footer branding - placed outside tabs so it's always visible
+    st.markdown("""
+    <div class="footer-branding">
+        <p>
+            <span class="brand-name">Raga Musikraum</span> | 
+            Developed by: <a href="https://www.dinexora.de" target="_blank">Dinexora</a> | 
+            © 2025 | 🎵 Empowering Music Analysis
+        </p>
+    </div>
+    """, unsafe_allow_html=True)
 
 
 def analyze_audio(source, pitch_method, smooth_pitch, remove_outliers,
@@ -1989,17 +2014,6 @@ def display_microphone_tab():
         - 🎹 MIDI file of your performance
         - 📄 Detailed analysis data
         """)
-    
-    # Footer branding
-    st.markdown("""
-    <div class="footer-branding">
-        <p>
-            <span class="brand-name">Raga Musikraum</span> | 
-            Developed by: <a href="https://www.dinexora.de" target="_blank">Dinexora</a> | 
-            © 2025 | 🎵 Empowering Music Analysis
-        </p>
-    </div>
-    """, unsafe_allow_html=True)
 
 
 if __name__ == "__main__":
