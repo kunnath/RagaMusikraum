@@ -9,7 +9,13 @@ A comprehensive music analysis application with a beautiful modern UI that trans
 
 ---
 
-## 📋 Table of Contents
+## � Application Screenshot
+
+![Raga Musikraum Screenshot](screen.png)
+
+---
+
+## �📋 Table of Contents
 
 1. [Quick Start](#-quick-start)
 2. [Features Overview](#-features-overview)
@@ -26,6 +32,7 @@ A comprehensive music analysis application with a beautiful modern UI that trans
 ---
 
 ## 🚀 Quick Start
+
 
 ### Installation
 
